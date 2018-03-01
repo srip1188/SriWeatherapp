@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title> Local Weather Report </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="css/style.css">
+    <script src="vue/vue.min.js"></script>
+    <script src="vue/vue-resource.min.js"></script>
+
+</head>
+<body>
+  <div class="row column header">
+      <div class="row" style="float: left;">
+          <div class="medium-6 medium-offset-3 columns card" id="">
+              Local Weather:
+          </div>
+      </div>
+      <div class="row" style="float: left;">
+              <div class="medium-6 medium-offset-3 columns card" id="weatherApp">
+                  <h4 v-show="city">{{ city }}</h4>
+                  <span class="text-caption" v-show="curTempDisplay">{{ weatherMain }}: {{ weatherDesc }}</span>
+                  <h1 v-show="curTempDisplay">
+                      <i class="wi" class="[classWI]"></i> {{ curTempDisplay }}
+                      <span class="btn btn-deg" class="{ 'btn-deactivate': displayMode }" @click="getTemp(0)">°C</span> |
+                      <span class="btn btn-deg" class="{ 'btn-deactivate': !displayMode }" @click="getTemp(1)">°F</span>
+                  </h1>
+                  <span class="btn btn-clkdanger"><i class="wi wi-refresh" title="Click to refresh" @click="getLocation"></i></span>
+              </div>
+              <div class="medium-12 columns">
+              </div>
+          </div>
+    </div>
+    
+    <script  src="js/index.js"></script>
+</body>
+</html>
